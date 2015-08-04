@@ -1,0 +1,46 @@
+<!--Please don't judge me on my CSS. I really just put it together really quickly to spruce up the
+form-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div ng-app="" id="header" ng-controller="formController">
+  
+  <form id="testform" novalidate>
+    
+    Name:
+    <br>
+    <input type="text" class="field" ng-model="user.name"><br>
+    
+    Email:
+    <br>
+    <input type="text" class="field" ng-model="user.email">
+    <br><br>
+    <div id="buttonholder">
+      <button id="button" ng-click="reset()">RESET</button>
+    </div>
+  </form>
+  <div id="results">
+    <h1>Name = {{user.name}}</h1>
+    <h1>Email = {{user.email}}</h1>
+  <div>
+</div>
+
+<script>
+  function formController ($scope) {
+      $scope.master = {firstName:"", lastName:""};
+      $scope.reset = function() {
+          $scope.user = angular.copy($scope.master);
+      };
+      $scope.reset();
+  }
+</script>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+</body>
+</html>
